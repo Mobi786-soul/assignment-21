@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Checker</title>
+</head>
+<body>
+
+<h2>Student Grade Checker</h2>
+
+<form method="post">
+    Enter Marks (0 - 100): <input type="number" name="marks" required>
+    <input type="submit" value="Check Grade">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $marks = $_POST['marks'];
+
+    echo "<h3>Using If-Else:</h3>";
+    if ($marks >= 90 && $marks <= 100) {
+        echo "Grade: A";
+    } elseif ($marks >= 80 && $marks < 90) {
+        echo "Grade: B";
+    } elseif ($marks >= 70 && $marks < 80) {
+        echo "Grade: C";
+    } elseif ($marks >= 60 && $marks < 70) {
+        echo "Grade: D";
+    } elseif ($marks >= 0 && $marks < 60) {
+        echo "Grade: F";
+    } else {
+        echo "Invalid Marks!";
+    }
+
+    echo "<h3>Using Switch Statement:</h3>";
+    switch (true) {
+        case ($marks >= 90 && $marks <= 100):
+            echo "Grade: A";
+            break;
+        case ($marks >= 80 && $marks < 90):
+            echo "Grade: B";
+            break;
+        case ($marks >= 70 && $marks < 80):
+            echo "Grade: C";
+            break;
+        case ($marks >= 60 && $marks < 70):
+            echo "Grade: D";
+            break;
+        case ($marks >= 0 && $marks < 60):
+            echo "Grade: F";
+            break;
+        default:
+            echo "Invalid Marks!";
+    }
+}
+?>
+
+</body>
+</html>
